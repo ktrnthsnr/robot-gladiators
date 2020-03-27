@@ -43,3 +43,30 @@
    11  git commit -m "merge to master"
    12  git push origin master
    13  history >> history.log
+    1  git branch
+    2  git merge feature/itial-game
+    3  git add .
+    4  git commit -m "merged to dev"
+    5  git origin push develop
+    6  git push origin develop
+    7  history
+    8  git checkout master
+    9  git branch
+   10  git merge develop
+   11  git commit -m "merge to master"
+   12  git push origin master
+   13  history >> history.log
+   14  start .
+   15  git checkout feature/itial-game
+   16  git branh
+   17  git branch
+   18  git checkout master
+   19  git branch
+   20  git add .
+   21  git commit -m "added console.log functions"
+   22  git push origin master
+   23  git mv game.js game1.js
+   24  git add .
+   25  git commit -m "updated fight function code"
+   26  git push origin master
+   27  history >> history.log
