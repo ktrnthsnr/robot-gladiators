@@ -23,9 +23,9 @@ window.alert("Welcome to Robot Gladiators!");
     
 var fight = function(enemyNames) {
         // repeat and execute as long as the enemy robot is alive 
-    while(enemyHealth > 0) {
+    while (enemyHealth  > 0 && playerHealth > 0)  {
           // place fight function code block here . . .
-        
+          
         //if FIGHT OR SKIP statement begin ---- 
         var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
         console.log(promptFight);
@@ -51,6 +51,7 @@ var fight = function(enemyNames) {
                     // Check Player's health
                     if (playerHealth <= 0) {
                         window.alert(playerName + " has died!");
+                        break; //if died, exit out of the game.
                     } 
                     else {
                         window.alert(playerName + " still has " + playerHealth + " health left.");
@@ -95,7 +96,7 @@ for(var i = 0; i < enemyNames.length; i++) {
 */
 
 for (var i = 0; i < enemyNames.length; i++) {
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
+    var pickedEnemyName = enemyNames[i]; // create a var of the index
+    enemyHealth = 50; // after enemy1 dies, enemy2 will have fresh new health
     fight(pickedEnemyName);
 }
