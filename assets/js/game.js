@@ -29,6 +29,7 @@ var fight = function() {
         if (promptFight === "fight" || promptFight === "FIGHT") {
             
             // Fight begin
+
                 // Remove Enemy's health by subtracting the amount set in the playerAttack variable
                 enemyHealth = enemyHealth - playerAttack;
                     console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
@@ -39,6 +40,7 @@ var fight = function() {
                 else {
                     window.alert(enemyName + " still has " + enemyHealth + " health left.");
                 }
+                
                 // Removes Player's health by subtracting amts set in the enemyAttack variable
                 playerHealth = playerHealth - enemyAttack;
                     console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
@@ -58,13 +60,13 @@ var fight = function() {
         
             // if yes (true), leave fight
             if (confirmSkip) {
-            window.alert(playerName + " has decided to skip this fight. Goodbye!");
-            // subtract money from playerMoney for skipping
-            playerMoney = playerMoney - 2;
+                window.alert(playerName + " has decided to skip this fight. Goodbye!");
+                // subtract money from playerMoney for skipping
+                playerMoney = playerMoney - 2;
             }
             // if no (false), ask question again by running fight() again
             else {
-            fight();
+                fight();
             }
         }
 
