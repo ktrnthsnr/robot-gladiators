@@ -70,3 +70,16 @@
    25  git commit -m "updated fight function code"
    26  git push origin master
    27  history >> history.log
+    1  git add .
+    2  git commit -m "add fight or skip alerts and confirms"
+    3  git push origin master
+    4  git add .
+    5  git commit -m "indented for clarity"
+    6  git push origin master
+    7  git add .
+    8  git commit -m "cleaned up duplicates"
+    9  git push origin master
+   10  git add .
+   11  git commit -m "updated if else"
+   12  git push origin master
+   13  history >> history.log

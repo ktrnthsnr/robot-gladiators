@@ -1,24 +1,61 @@
+// Start with pseudocode
+// Game States
+// "WIN" - Player robot has defeated all enemy robots
+//    * Fight all enemy robots
+//    * Defeat each enemy robot
+// "LOSE" - Player robot's health is zero or less
+
 /* ----------------- Module 3 - draft 2 * ----------------- */
 
-//declare variables
+//global variables
+    
     var playerName = window.prompt("What is your robot's name?");
-    var playerAttack = 10;
     var playerHealth = 100;
+    var playerAttack = 10;
     var playerMoney = 10;
-    console.log(playerName, playerAttack, playerHealth, playerMoney);
-    var enemyName = "Roborto";
-    var enemyAttack = 12;
-    var enemyHealth = 50;
-    console.log(enemyName, enemyAttack, enemyHealth);
+    //console.log(playerName, playerAttack, playerHealth, playerMoney);
 
-    //compare these 2 methods:
+    //declare an array 
+    var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
+    var enemyHealth = 50;
+    var enemyAttack = 12;
+    //console.log(enemyNames, enemyHealth, enemyAttack);
+    
+        //var enemy1 = "Roborto";
+        //var enemy2 = "Amy Android";
+        //var enemy3 = "Robo Trumble";
+    /*
+        //count how many index values    
+        console.log(enemyNames);
+        console.log(enemyNames.length);
+    //display each item of the array in the console
+        console.log(enemyNames[0]);
+        console.log(enemyNames[1]);
+        console.log(enemyNames[2]);
+     //To retrieve the first element in the array, use the following statement
+            enemyNames[0];
+        console.log(enemyNames[2]);
+    //for loop sample (start, where, increment by)S
+            for(var i = 0; i < 3; i++) {
+                console.log("apple " + i);
+            }
+    */
+    /*
+    for(var i = 0; i < enemyNames.length; i++) {
+        console.log(enemyNames[i]);
+      }
+    */
+    
+       //compare these 2 methods:
     /* compare with just a 'function declaration'; creates function only
     function fight() {
         window.alert("Welcome to Robot Gladiators!");
     } */
 
-// Define: fight function begin 
-var fight = function() {
+//change to a variable with a function passing in an argument of the arrayname enemyName
+    //enemyNames is the parameter of the function
+var fight = function(enemyNames) {
+    
     window.alert("Welcome to Robot Gladiators!");
 
     //if FIGHT OR SKIP statement begin ---- 
@@ -32,18 +69,18 @@ var fight = function() {
 
                 // Remove Enemy's health by subtracting the amount set in the playerAttack variable
                 enemyHealth = enemyHealth - playerAttack;
-                    console.log(playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining.");
+                    console.log(playerName + " attacked " + enemyNames + ". " + enemyNames + " now has " + enemyHealth + " health remaining.");
                 // Check Enemy's health
                 if (enemyHealth <= 0) {
-                    window.alert(enemyName + " has died!");
+                    window.alert(enemyNames + " has died!");
                 } 
                 else {
-                    window.alert(enemyName + " still has " + enemyHealth + " health left.");
+                    window.alert(enemyNames + " still has " + enemyHealth + " health left.");
                 }
                 
                 // Removes Player's health by subtracting amts set in the enemyAttack variable
                 playerHealth = playerHealth - enemyAttack;
-                    console.log(enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
+                    console.log(enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining.");
                 // Check Player's health
                 if (playerHealth <= 0) {
                     window.alert(playerName + " has died!");
@@ -74,7 +111,25 @@ var fight = function() {
 };
 
 //execute function
-fight();
+    //-- fight just once
+    //fight();
+
+    //-- loop through and list enemy names and their index location
+            /*
+            for(var i = 0; i < enemyNames.length; i++) {
+                console.log(enemyNames[i]);
+                console.log(i);
+                console.log(enemyNames[i] + " is at " + i + " index");
+            }
+            */
+
+    //-- fight through array loop
+    for(var i = 0; i < enemyNames.length; i++) {
+        fight(enemyNames[i]);
+    }
+
+
+
 
 // notes
 
