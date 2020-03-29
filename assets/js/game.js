@@ -47,16 +47,9 @@ var fight = function() {
                     window.alert(playerName + " has died!");
                 } 
                 else {
-                window.alert(playerName + " still has " + playerHealth + " health left.");
-                }
-                // check player's health
-                if (playerHealth <= 0) {
-                    window.alert(playerName + " has died!");
-                } 
-                else {
                     window.alert(playerName + " still has " + playerHealth + " health left.");
                 }
-
+                
             // Fight end
 
         } else if (promptFight === "skip" || promptFight === "SKIP") {
