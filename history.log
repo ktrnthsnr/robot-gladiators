@@ -83,3 +83,23 @@
    11  git commit -m "updated if else"
    12  git push origin master
    13  history >> history.log
+    1  git push origin feature/itial-game
+    2  git add .
+    3  git commit -m "updating per master"
+    4  git push origin feature/itial-game
+    5  git merge master
+    6  git add .
+    7  git commit -m "start and end game function"
+    8  git push origin feature/itial-game
+    9  git branch
+   10  git checkout develop
+   11  history
+   12  git merge feature/itial-game
+   13  git branch
+   14  git checkout master
+   15  git branch
+   16  git merge develop
+   17  git add .
+   18  git commit -m "resolving master merging"
+   19  git push origin master
+   20  history >> history.log
