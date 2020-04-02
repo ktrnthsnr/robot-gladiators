@@ -23,8 +23,47 @@ var playerInfo = {
     name: window.prompt("What is your robot's name?"),
     health: 100,
     attack: 10,
-    money: 10
-  }
+    money: 10,
+    reset: function() {
+      this.health = 100;
+      this.money = 10;
+      this.attack = 10;
+    }, // comma!
+    
+    //updated refill and upgrade functions with conditional logic
+    refillHealth: function() {
+        if (this.money >= 7) {
+        window.alert("Refilling player's health by 20 for 7 dollars.");
+        this.health += 20;
+        this.money -= 7;
+        } 
+        else {
+        window.alert("You don't have enough money!");
+        }
+
+        /*
+        refillHealth: function() {
+        this.health += 20;
+        this.money -= 7;
+        }, // comma!
+        upgradeAttack: function() {
+        this.attack += 6;
+        this.money -= 7;
+        }
+        */   
+    },
+    upgradeAttack: function() {
+    if (this.money >= 7) {
+        window.alert("Upgrading player's attack by 6 for 7 dollars.");
+        this.attack += 6;
+        this.money -= 7;
+        } 
+        else {
+        window.alert("You don't have enough money!");
+        }
+    }
+};
+
 //var playerInfo.name = window.prompt("What is your robot's name?");
 console.log(playerInfo.name, playerInfo.attack, playerInfo.health, playerInfo.money);
 
@@ -32,8 +71,9 @@ console.log(playerInfo.name, playerInfo.attack, playerInfo.health, playerInfo.mo
     //var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
     //var enemyHealth = randomNumber();
     //var enemyAttack = 12;
+    //console.log(enemyNames, enemyHealth, enemyAttack);
 //an array of enemy Objects, an array with numerical indexes ie. enemyInfo[0].name for Roborto
-var enemyInfo = [
+    /*  var enemyInfo = [
         {
             name: "Roborto",
             attack: 12
@@ -46,8 +86,23 @@ var enemyInfo = [
             name: "Robo Trumble",
             attack: 14
         }
-    ];
-//console.log(enemyInfo.name[0], enemyInfo.attack[0]);
+    ];  */
+    //added randomNumber function to attack property of the enemyInfo array
+var enemyInfo = [
+        {
+          name: "Roborto",
+          attack: randomNumber(10, 14)
+        },
+        {
+          name: "Amy Android",
+          attack: randomNumber(10, 14)
+        },
+        {
+          name: "Robo Trumble",
+          attack: randomNumber(10, 14)
+        }
+];    
+
 
 
 //fight function
@@ -116,9 +171,11 @@ var fight = function(enemy) {
 var startGame = function() {
   for (var i = 0; i < enemyInfo.length; i++) {
         // reset player stats
-        playerInfo.health = 100;
-        playerInfo.attack = 10;
-        playerInfo.money= 10;
+        //playerInfo.health = 100;
+        //playerInfo.attack = 10;
+        //playerInfo.money= 10;
+        //replaced with a call to the playerInfo object and reset method
+        playerInfo.reset();
 
         if (playerInfo.health > 0) {
             window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
@@ -189,6 +246,15 @@ var shop = function() {
     );
     // use switch to carry out action
     switch (shopOptionPrompt) {
+        case "REFILL":
+        case "refill":
+            playerInfo.refillHealth();
+        break;
+        case "UPGRADE":
+        case "upgrade":
+            playerInfo.upgradeAttack();
+        break;
+        /* // old code
         case "REFILL": // new case
         case "refill":
             if (playerInfo.money>= 7) {
@@ -223,6 +289,7 @@ var shop = function() {
             // call shop() again to force player to pick a valid option
             shop();
             break;
+            */
     }
 };
 
